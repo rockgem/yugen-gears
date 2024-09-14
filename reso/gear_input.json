@@ -1,0 +1,64 @@
+{
+  "0": {
+	"x": 200,
+	"y": 200,
+	"extra_x": 200,
+	"extra_y": 200,
+	"radius": 4,
+	"n_teeth": 6,
+	"is_movable": false,
+	"is_rotatable": true,
+	"connection": 1,
+	"dot": [
+		{
+		"color": "blue",
+		"offset": -10.0,
+		"teeth_index": 2
+		},
+		{
+		"color": "green",
+		"offset": -10.0,
+		"teeth_index": 5
+		}
+	]
+  },
+  "1": {
+	"x": 345.3444185374863,
+	"y": 272.67220926874313,
+	"radius": 4,
+	"n_teeth": 20,
+	"is_movable": false,
+	"is_rotatable": false,
+	"connection": 0,
+	"dot": [
+		{
+		"color": "green",
+		"offset": -14.0,
+		"teeth_index": 3
+		},
+		{
+		"color": "blue",
+		"offset": -14.0,
+		"teeth_index": 6
+		}
+	]
+  },
+  "2": {
+	"x": 345.3444185374863,
+	"y": 85.17220926874313,
+	"radius": 4,
+	"n_teeth": 10,
+	"is_movable": false,
+	"is_rotatable": true,
+	"connection": 1
+  },
+  "3": {
+	"x": 220.5368743868098,
+	"y": 459.88352549475803,
+	"radius": 4,
+	"n_teeth": 16,
+	"is_movable": false,
+	"is_rotatable": true,
+	"connection": 1
+  }
+}
