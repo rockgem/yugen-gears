@@ -103,6 +103,9 @@ func update_json_file():
 		#new_gear['width'] = gears_data[i]['w']
 		
 		data[str(i)] = new_gear
+		
+		if gears_data[i].has('dot'):
+			data[str(i)].merge(gears_data[i])
 	
 	final_json = data
 
@@ -370,3 +373,10 @@ func generate_imgs_and_data():
 		converting_svgs_to_pngs(i)
 	
 	update_json_file()
+
+
+func clear_datas():
+	gears_data.clear()
+	gears.clear()
+	angles_dict.clear()
+	final_json.clear()

@@ -21,7 +21,7 @@ func _ready() -> void:
 		if data.has('dot'):
 			for gear_data in data['dot']:
 				var dot = load("res://actors/Dot.tscn").instantiate()
-				dot.get_node('Sprite2D').position.x = data['container_dims'] / 2 - 16.0
+				dot.get_node('Sprite2D').position.x = data['container_dims'] / 2 + 4.0
 				dot.get_node('Sprite2D').position.y += gear_data['offset']
 				
 				dot.rotation_degrees = (360 / data['n_teeth']) * gear_data['teeth_index']

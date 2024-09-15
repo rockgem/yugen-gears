@@ -42,12 +42,12 @@
 	"dot": [
 		{
 		"color": "blue",
-		"offset": -10.0,
+		"offset": -8.0,
 		"teeth_index": 2
 		},
 		{
 		"color": "green",
-		"offset": -10.0,
+		"offset": -8.0,
 		"teeth_index": 5
 		}
 	]
