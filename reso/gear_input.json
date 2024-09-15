@@ -1,26 +1,12 @@
 {
   "0": {
-	"x": 200,
-	"y": 200,
-	"extra_x": 200,
-	"extra_y": 200,
+	"x": 345.3444185374863,
+	"y": 85.17220926874313,
 	"radius": 4,
-	"n_teeth": 6,
+	"n_teeth": 10,
 	"is_movable": false,
 	"is_rotatable": true,
-	"connection": 1,
-	"dot": [
-		{
-		"color": "blue",
-		"offset": -10.0,
-		"teeth_index": 2
-		},
-		{
-		"color": "green",
-		"offset": -10.0,
-		"teeth_index": 5
-		}
-	]
+	"connection": 1
   },
   "1": {
 	"x": 345.3444185374863,
@@ -44,13 +30,27 @@
 	]
   },
   "2": {
-	"x": 345.3444185374863,
-	"y": 85.17220926874313,
+	"x": 200,
+	"y": 200,
+	"extra_x": 200,
+	"extra_y": 200,
 	"radius": 4,
-	"n_teeth": 10,
+	"n_teeth": 6,
 	"is_movable": false,
 	"is_rotatable": true,
-	"connection": 1
+	"connection": 1,
+	"dot": [
+		{
+		"color": "blue",
+		"offset": -10.0,
+		"teeth_index": 2
+		},
+		{
+		"color": "green",
+		"offset": -10.0,
+		"teeth_index": 5
+		}
+	]
   },
   "3": {
 	"x": 220.5368743868098,
