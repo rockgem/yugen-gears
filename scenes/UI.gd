@@ -12,6 +12,8 @@ func on_game_win():
 
 
 func _on_retry_pressed() -> void:
+	ManagerGame.clear_datas()
+	
 	get_tree().paused = false
 	
 	get_tree().change_scene_to_file("res://scenes/Main.tscn")

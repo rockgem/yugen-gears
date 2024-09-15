@@ -7,26 +7,13 @@ var gears = []
 func _ready() -> void:
 	ManagerGame.main_ref = self
 	
-	var gears_data = get_data("res://reso/gear_input.json")
+	ManagerGame.generate_imgs_and_data()
 	
-	var g = load("res://actors/Gear.tscn")
-	
-	var count = 0
-	for gear in gears_data:
-		var ng = g.instantiate()
-		ng.data.merge(gears_data[gear])
-		ng.data['id'] = count
+	for gear in ManagerGame.final_json:
+		var g = load("res://actors/Gear.tscn").instantiate()
+		g.data = ManagerGame.final_json[gear]
 		
-		gears.append(ng)
-		
-		count += 1
-	
-	ManagerGame.calculate_gears_data()
-	
-	for gear in gears:
-		add_child(gear)
-	
-	calculate_rotations()
+		add_child(g)
 
 
 func _physics_process(delta: float) -> void:

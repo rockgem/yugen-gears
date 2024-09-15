@@ -1,42 +1,27 @@
 extends Node2D
 
 
-var data = {
-	"ratio": 0.0,
-	"total_ratio": 1,
-	"speed": 0.0,
-	"angle": 0.0,
-	"rotation": 0.0,
-	"joint_angle": 0.0,
-}
+var data = {}
 
 var gear_rotation_direction = 1
 
 var is_rotating = false
 
 func _ready() -> void:
-	#await get_tree().process_frame
-	
 	if data:
-		#ManagerGame.set_ratio(self, data['connection'])
-		#ManagerGame.set_rotation(self, data['connection'])
-		
-		data['container_dims'] = ManagerGame.generate_gear_dimension(data['n_teeth'], float(2 * float(data['radius']))) + 48
-		data['speed'] = ManagerGame.fix2(data['total_ratio'] * ManagerGame.RPM) / 10
-		
 		$Sprite2D.texture = load('res://art/g_%s.png' % str(data['n_teeth']))
 		global_position.x = data['x']
 		global_position.y = data['y']
-		#rotation_degrees = data['angle']
+		rotation_degrees = data['angle']
 		
 		var new_shape = CircleShape2D.new()
-		new_shape.radius = data['container_dims'] / 2
+		new_shape.radius = data['container_dims'] / 2 + 26
 		$Area2D/CollisionShape2D.shape = new_shape
 		
 		if data.has('dot'):
 			for gear_data in data['dot']:
 				var dot = load("res://actors/Dot.tscn").instantiate()
-				dot.get_node('Sprite2D').position.x = data['container_dims'] / 2 - 16.0
+				dot.get_node('Sprite2D').position.x = data['container_dims'] / 2 + 4.0
 				dot.get_node('Sprite2D').position.y += gear_data['offset']
 				
 				dot.rotation_degrees = (360 / data['n_teeth']) * gear_data['teeth_index']
