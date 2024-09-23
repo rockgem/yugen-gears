@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqrrjc0qyurrk"]
+
+[ext_resource type="Script" path="res://actors/Cannon.gd" id="1_0pkt0"]
+[ext_resource type="Texture2D" uid="uid://b8tf1vsugtlv6" path="res://reso/sprites/cannon.tres" id="2_o61l1"]
+
+[node name="Cannon" type="Node2D" groups=["Cannon"]]
+z_index = 1
+script = ExtResource("1_0pkt0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_o61l1")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(54, 0)

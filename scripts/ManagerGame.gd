@@ -5,6 +5,7 @@ signal game_win
 
 
 var currently_clicked_gear = null
+var currently_clicked_gear_teeth = null # this will be an area2d i guess?????
 var main_ref = null
 
 var AM = 180/PI
@@ -16,16 +17,48 @@ var angles_dict = {}
 
 var final_json = {}
 
+var json_path_current = ''
+var current_game_mode
+
+enum GAME_MODE{
+	DOTS,
+	SHOOTING
+}
+
+var offsets = {
+	4: 0.0,
+	5: 0.0,
+	6: -8.0,
+	7: 0.0,
+	8: 0.0,
+	9: 0.0,
+	10: -11.0,
+	11: 0.0,
+	12: 0.0,
+	13: 0.0,
+	14: 0.0,
+	15: 0.0,
+	16: 0.0,
+	17: 0.0,
+	18: 0.0,
+	19: 0.0,
+	20: -14.0
+}
+
+
 func import_gears_from_file(file_path):
 	#var file = open(file_path)
 	#
 	#var data = json.load(file)
 	
-	var file = FileAccess.open("res://reso/gear_input.json", FileAccess.READ)
+	var file = FileAccess.open(ManagerGame.json_path_current, FileAccess.READ)
 	var j = JSON.new()
 	j.parse(file.get_as_text())
 	
 	var data = j.data
+	
+	if data.has('target'):
+		data.erase('target')
 	
 	# iterate through the geard IDs
 	for gear_id in range(len(data)):
@@ -105,6 +138,10 @@ func update_json_file():
 		data[str(i)] = new_gear
 		
 		if gears_data[i].has('dot'):
+			data[str(i)].merge(gears_data[i])
+		if gears_data[i].has('is_clickable'):
+			data[str(i)].merge(gears_data[i])
+		if gears_data[i].has('is_cannon'):
 			data[str(i)].merge(gears_data[i])
 	
 	final_json = data
@@ -329,8 +366,8 @@ func position_gears(ID: int, x, y):
 		gear.y = y
 
 
-func generate_imgs_and_data():
-	import_gears_from_file('gear_input.json')
+func generate_imgs_and_data(path: String):
+	import_gears_from_file(path)
 	
 	calculate_angles(gears_data)
 	
@@ -373,6 +410,9 @@ func generate_imgs_and_data():
 		converting_svgs_to_pngs(i)
 	
 	update_json_file()
+	
+	if current_game_mode == GAME_MODE.SHOOTING:
+		pass
 
 
 func clear_datas():

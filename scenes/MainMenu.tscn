@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://diq0bimd5x3yy"]
+
+[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_hymuy"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hymuy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -33.0
+offset_right = 128.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DotMode" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Touch the Dot!"
+
+[node name="ShootMode" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Shoot the Dot!"
+
+[connection signal="pressed" from="VBoxContainer/DotMode" to="." method="_on_dot_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/ShootMode" to="." method="_on_shoot_mode_pressed"]

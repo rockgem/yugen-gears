@@ -34,6 +34,38 @@ func _ready() -> void:
 						ManagerGame.main_ref.spawn_obj(dot, global_position)
 					'blue':
 						add_child(dot)
+		
+		# essentially makes this gear clickable by spawning individual clickablearea2ds
+		if data.has('is_clickable'):
+			# spawn dial here
+			var dd = load("res://actors/DialDetector.tscn").instantiate()
+			dd.global_position = global_position
+			dd.global_position.x -= data['container_dims'] / 2 + 32.0
+			dd.global_position.y -= data['container_dims'] / 2 + 32.0
+			ManagerGame.main_ref.add_child(dd)
+			
+			if data['is_clickable'] == true:
+				var click_area = load('res://actors/ClickableGear.tscn')
+				var rot_min = 360 / data['n_teeth']
+				var rot_accumulation = 0.0
+				
+				for teeth in data['n_teeth']:
+					var ca = click_area.instantiate()
+					ca.parent_gear = self
+					ca.get_node('Area2D').global_position.x = data['container_dims'] / 2 + 10.0
+					ca.get_node('Area2D').global_position.y += ManagerGame.offsets[int(data['n_teeth'])]
+					ca.rotation_degrees = rot_accumulation
+					
+					rot_accumulation += rot_min
+					
+					add_child(ca)
+		
+		# puts cannon on the gear
+		if data.has('is_cannon'):
+			print('hahaha')
+			var cannon = load('res://actors/Cannon.tscn').instantiate()
+			
+			add_child(cannon)
 
 
 func _physics_process(delta: float) -> void:
@@ -47,6 +79,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if data.has('is_clickable'):
+		if data['is_clickable']:
+			return
+	
 	if data['is_rotatable'] == false:
 		return
 	

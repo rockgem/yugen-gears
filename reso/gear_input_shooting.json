@@ -1,0 +1,26 @@
+{
+	"0": {
+		"x": 186.0,
+		"y": 350.0,
+		"radius": 4,
+		"n_teeth": 10,
+		"is_movable": false,
+		"is_rotatable": true,
+		"connection": 1,
+		"is_clickable": true
+	},
+	"1": {
+		"x": 360.3444185374863,
+		"y": 272.67220926874313,
+		"radius": 4,
+		"n_teeth": 20,
+		"is_movable": false,
+		"is_rotatable": false,
+		"connection": 0,
+		"is_cannon": true
+	},
+	"target": {
+		"x": 700.0,
+		"y": 140.0
+	}
+}
