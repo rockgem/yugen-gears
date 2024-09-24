@@ -19,12 +19,10 @@
 	"dot": [
 		{
 		"color": "green",
-		"offset": -14.0,
 		"teeth_index": 3
 		},
 		{
 		"color": "blue",
-		"offset": -14.0,
 		"teeth_index": 6
 		}
 	]
@@ -42,12 +40,10 @@
 	"dot": [
 		{
 		"color": "blue",
-		"offset": -8.0,
 		"teeth_index": 2
 		},
 		{
 		"color": "green",
-		"offset": -8.0,
 		"teeth_index": 5
 		}
 	]
