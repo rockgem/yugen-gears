@@ -10,24 +10,23 @@
 		"is_clickable": true
 	},
 	"1": {
-		"x": 360.3444185374863,
-		"y": 272.67220926874313,
+		"x": 334.0,
+		"y": 350.0,
 		"radius": 4,
-		"n_teeth": 20,
+		"n_teeth": 13,
 		"is_movable": false,
 		"is_rotatable": false,
-		"connection": 0,
-		"is_cannon": true
+		"connection": 0
 	},
 	"2": {
-		"x": 560.3444185374863,
-		"y": 272.67220926874313,
+		"x": 500.0,
+		"y": 272.0,
 		"radius": 4,
-		"n_teeth": 12,
+		"n_teeth": 16,
 		"is_movable": false,
 		"is_rotatable": false,
 		"connection": 1,
-		"is_clickable": true
+		"is_cannon": true
 	},
 	"target": {
 		"x": 700.0,
