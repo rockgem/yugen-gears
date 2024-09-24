@@ -19,6 +19,16 @@
 		"connection": 0,
 		"is_cannon": true
 	},
+	"2": {
+		"x": 560.3444185374863,
+		"y": 272.67220926874313,
+		"radius": 4,
+		"n_teeth": 12,
+		"is_movable": false,
+		"is_rotatable": false,
+		"connection": 1,
+		"is_clickable": true
+	},
 	"target": {
 		"x": 700.0,
 		"y": 140.0
