@@ -3,6 +3,8 @@ extends Node2D
 
 
 func shoot():
+	$AnimationPlayer.play("fire")
+	
 	var bullet = load("res://actors/Bullet.tscn").instantiate()
 	bullet.direction = global_position.direction_to($Node2D.global_position)
 	

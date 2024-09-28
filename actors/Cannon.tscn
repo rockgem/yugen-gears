@@ -48,7 +48,6 @@ script = ExtResource("1_0pkt0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
-scale = Vector2(3, 3)
 texture = ExtResource("2_wp6ov")
 hframes = 8
 
