@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwdotpdbli38h"]
+[gd_scene load_steps=5 format=3 uid="uid://bwdotpdbli38h"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_kjcv8"]
 [ext_resource type="Texture2D" uid="uid://cpkxu7g1dsqmw" path="res://art/blueprint-background.jpeg" id="2_7ekxk"]
 [ext_resource type="PackedScene" uid="uid://dyom41foc4i57" path="res://scenes/UI.tscn" id="3_dlefv"]
+[ext_resource type="Texture2D" uid="uid://bkdnuasnale6b" path="res://art/bg.png" id="4_wm4ro"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kjcv8")
@@ -14,3 +15,8 @@ texture = ExtResource("2_7ekxk")
 metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("3_dlefv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 326)
+scale = Vector2(0.314352, 0.314352)
+texture = ExtResource("4_wm4ro")
