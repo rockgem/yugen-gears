@@ -1,6 +1,8 @@
 extends Node2D
 
 var gears = []
+@onready var center = $Center
+var t = null
 
 func _ready() -> void:
 	ManagerGame.main_ref = self
@@ -20,13 +22,22 @@ func _ready() -> void:
 		
 		var orig_data = j.data
 		
-		if orig_data.has('target'):
-			var target = load("res://actors/Target.tscn").instantiate()
-			
-			target.global_position.x = orig_data['target']['x']
-			target.global_position.y = orig_data['target']['y']
-			
-			add_child(target)
+		t = Timer.new()
+		t.wait_time = 10.0
+		t.autostart = true
+		t.timeout.connect(on_timer_timeout)
+		
+		add_child(t)
+		
+		#if orig_data.has('target'):
+			#var target = load("res://actors/Target.tscn").instantiate()
+			#
+			#target.global_position.x = orig_data['target']['x']
+			#target.global_position.y = orig_data['target']['y']
+			#
+			#add_child(target)
+	
+	on_timer_timeout()
 
 
 func _physics_process(delta: float) -> void:
@@ -77,3 +88,25 @@ func calculate_rotations():
 		var angle_between = gear.global_position.angle_to(parent_gear.global_position)
 		
 		gear.rotation_degrees += rotation_angle
+
+
+func get_enemies_amount():
+	var targets = get_tree().get_nodes_in_group("Target")
+	
+	return targets.size()
+
+
+func on_timer_timeout():
+	# we limit max amount of enemies to display to 5
+	if get_enemies_amount() > 5:
+		return
+	
+	var s = $SpawnPoints.get_children()
+	s.shuffle()
+	
+	#var rand_pos = Vector2(0, 0)
+	var target = load("res://actors/Target.tscn").instantiate()
+	
+	target.global_position = s[0].global_position
+	
+	add_child(target)

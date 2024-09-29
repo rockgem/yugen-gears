@@ -34,6 +34,7 @@ Dot=""
 Gear=""
 DialDetector=""
 Cannon=""
+Target=""
 
 [input_devices]
 

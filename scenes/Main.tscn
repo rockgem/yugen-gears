@@ -20,3 +20,77 @@ metadata/_edit_lock_ = true
 position = Vector2(570, 326)
 scale = Vector2(0.314352, 0.314352)
 texture = ExtResource("4_wm4ro")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(78, -21)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(311, -26)
+
+[node name="Node2D3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(566, -16)
+
+[node name="Node2D4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1027, -28)
+
+[node name="Node2D20" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1153, -19)
+
+[node name="Node2D5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-18, 92)
+
+[node name="Node2D6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-26, 242)
+
+[node name="Node2D7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-18, 391)
+
+[node name="Node2D8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-20, 586)
+
+[node name="Node2D9" type="Node2D" parent="SpawnPoints"]
+position = Vector2(122, 680)
+
+[node name="Node2D10" type="Node2D" parent="SpawnPoints"]
+position = Vector2(318, 667)
+
+[node name="Node2D11" type="Node2D" parent="SpawnPoints"]
+position = Vector2(735, 667)
+rotation = -0.774369
+
+[node name="Node2D12" type="Node2D" parent="SpawnPoints"]
+position = Vector2(529, 673)
+rotation = -0.774369
+
+[node name="Node2D13" type="Node2D" parent="SpawnPoints"]
+position = Vector2(961, 672)
+rotation = -0.774369
+
+[node name="Node2D14" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1174, 658)
+rotation = -0.774369
+
+[node name="Node2D15" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1182, 549)
+rotation = -0.774369
+
+[node name="Node2D16" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1179, 393)
+rotation = -0.774369
+
+[node name="Node2D17" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1163, 62)
+rotation = -0.774369
+
+[node name="Node2D18" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1169, 200)
+rotation = -0.774369
+
+[node name="Node2D19" type="Node2D" parent="SpawnPoints"]
+position = Vector2(808, -19)
+rotation = -0.774369
+
+[node name="Center" type="Node2D" parent="."]
+position = Vector2(609, 296)
