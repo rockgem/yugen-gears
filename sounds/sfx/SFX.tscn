@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyyi3ixbnqna8"]
+
+[ext_resource type="AudioStream" uid="uid://bqf8v27h4agk7" path="res://sounds/sfx/Click2.wav" id="1_snjnh"]
+[ext_resource type="Script" path="res://sounds/sfx/Sfx.gd" id="1_w210e"]
+[ext_resource type="AudioStream" uid="uid://3fu4eergpko5" path="res://sounds/sfx/engine noise 2.wav" id="3_tjdph"]
+[ext_resource type="AudioStream" uid="uid://jhtqlmor108e" path="res://sounds/sfx/Gunshot5.wav" id="4_oojhy"]
+
+[node name="Sfx" type="Node"]
+process_mode = 3
+script = ExtResource("1_w210e")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_snjnh")
+
+[node name="Engine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tjdph")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oojhy")

@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 ManagerGame="*res://scripts/ManagerGame.tscn"
+Bgm="*res://sounds/bgm/BGM.tscn"
+Sfx="*res://sounds/sfx/SFX.tscn"
 
 [display]
 

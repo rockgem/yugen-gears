@@ -3,6 +3,8 @@ extends Node2D
 
 
 func shoot():
+	Sfx.play_sound('Shoot')
+	
 	$AnimationPlayer.play("fire")
 	
 	var bullet = load("res://actors/Bullet.tscn").instantiate()
