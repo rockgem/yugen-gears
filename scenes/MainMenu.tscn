@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://diq0bimd5x3yy"]
+[gd_scene load_steps=9 format=3 uid="uid://diq0bimd5x3yy"]
 
 [ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_hymuy"]
 [ext_resource type="Texture2D" uid="uid://bkdnuasnale6b" path="res://art/bg.png" id="2_38e6s"]
+[ext_resource type="Texture2D" uid="uid://6spr6msq445c" path="res://art/etc/title.png" id="3_tdrh6"]
+[ext_resource type="Shader" path="res://scenes/rays.gdshader" id="4_rd6xk"]
+[ext_resource type="Texture2D" uid="uid://ctbxqyuwqms2t" path="res://reso/icons/settings.tres" id="5_mncmw"]
+[ext_resource type="Texture2D" uid="uid://peo3vc4uadnq" path="res://reso/icons/rankings.tres" id="6_th6n5"]
+[ext_resource type="Texture2D" uid="uid://pwkwk2al47wc" path="res://reso/icons/credits.tres" id="7_f51lu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n3biw"]
+shader = ExtResource("4_rd6xk")
+shader_parameter/angle = -0.297
+shader_parameter/position = -0.291
+shader_parameter/spread = 0.564
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 4.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.901961, 0.65098, 0.133333)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,6 +43,32 @@ grow_vertical = 2
 texture = ExtResource("2_38e6s")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_n3biw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_right = 0.507
+offset_left = -274.064
+offset_top = -57.0
+offset_right = 273.936
+offset_bottom = 491.0
+texture = ExtResource("3_tdrh6")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -31,9 +78,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -33.0
+offset_top = 40.0
 offset_right = 128.0
-offset_bottom = 33.0
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -45,6 +92,54 @@ text = "Touch the Dot!"
 [node name="ShootMode" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Shoot the Dot!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = 131.0
+offset_right = 210.5
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("7_f51lu")
+texture_pressed = ExtResource("7_f51lu")
+texture_hover = ExtResource("7_f51lu")
+texture_disabled = ExtResource("7_f51lu")
+texture_focused = ExtResource("7_f51lu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("5_mncmw")
+texture_pressed = ExtResource("5_mncmw")
+texture_hover = ExtResource("5_mncmw")
+texture_disabled = ExtResource("5_mncmw")
+texture_focused = ExtResource("5_mncmw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("6_th6n5")
+texture_pressed = ExtResource("6_th6n5")
+texture_hover = ExtResource("6_th6n5")
+texture_disabled = ExtResource("6_th6n5")
+texture_focused = ExtResource("6_th6n5")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/DotMode" to="." method="_on_dot_mode_pressed"]
 [connection signal="pressed" from="VBoxContainer/ShootMode" to="." method="_on_shoot_mode_pressed"]
