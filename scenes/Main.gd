@@ -2,6 +2,7 @@ extends Node2D
 
 var gears = []
 @onready var center = $Center
+var cannon_ref = null
 var t = null
 
 func _ready() -> void:
@@ -12,6 +13,10 @@ func _ready() -> void:
 	for gear in ManagerGame.final_json:
 		var g = load("res://actors/Gear.tscn").instantiate()
 		g.data = ManagerGame.final_json[gear]
+		
+		if ManagerGame.final_json[gear].has('is_cannon'):
+			if ManagerGame.final_json[gear]['is_cannon']:
+				cannon_ref = g
 		
 		add_child(g)
 	

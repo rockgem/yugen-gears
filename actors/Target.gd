@@ -5,11 +5,11 @@ var move_speed = 20.0
 
 
 func _physics_process(delta: float) -> void:
-	var dif = global_position.direction_to(ManagerGame.main_ref.center.global_position)
+	var dif = global_position.direction_to(ManagerGame.main_ref.cannon_ref.global_position)
 	
 	global_position += dif * move_speed * delta
 	
-	if global_position.distance_to(ManagerGame.main_ref.center.global_position) < 5.0:
+	if global_position.distance_to(ManagerGame.main_ref.cannon_ref.global_position) < 5.0:
 		queue_free()
 
 
