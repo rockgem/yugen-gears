@@ -13,8 +13,6 @@ func _on_area_entered(area: Area2D) -> void:
 			
 			get_tree().get_nodes_in_group("Cannon")[0].shoot()
 			
-			print('hoy yawa')
-			
 			area_touched.emit()
 
 
