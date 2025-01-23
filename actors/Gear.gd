@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	if is_rotating:
 		var connected_gears = $Area2D.get_overlapping_areas()
 		
-		rotation_degrees += data['speed'] * gear_rotation_direction
+		rotation_degrees += data['speed'] * gear_rotation_direction * ManagerGame.config_data['gear_speed_mult']
 		
 		for gear in connected_gears:
 			gear.get_parent().chain_rotate(gear_rotation_direction, null)
@@ -111,7 +111,7 @@ func chain_rotate(inital_rotation, parent):
 	
 	var connected_gears = $Area2D.get_overlapping_areas()
 	
-	rotation_degrees += data['speed'] * gear_rotation_direction
+	rotation_degrees += data['speed'] * gear_rotation_direction * ManagerGame.config_data['gear_speed_mult']
 	
 	for gear in connected_gears:
 		if gear.get_parent() == ManagerGame.currently_clicked_gear or gear.get_parent() == self:
