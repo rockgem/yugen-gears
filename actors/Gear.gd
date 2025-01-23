@@ -1,4 +1,5 @@
 extends Node2D
+class_name Gear
 
 
 var data = {}
@@ -62,8 +63,8 @@ func _ready() -> void:
 		
 		# puts cannon on the gear
 		if data.has('is_cannon'):
-			print('hahaha')
 			var cannon = load('res://actors/Cannon.tscn').instantiate()
+			cannon.rotation_degrees = 360 / data['n_teeth']
 			
 			add_child(cannon)
 

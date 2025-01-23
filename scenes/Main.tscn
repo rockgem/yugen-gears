@@ -94,3 +94,9 @@ rotation = -0.774369
 
 [node name="Center" type="Node2D" parent="."]
 position = Vector2(609, 296)
+
+[node name="RotationTest" type="Node2D" parent="."]
+position = Vector2(54, 21)
+
+[node name="Node2D" type="Node2D" parent="RotationTest"]
+position = Vector2(319, 0)

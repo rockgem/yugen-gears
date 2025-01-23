@@ -5,6 +5,10 @@ var gears = []
 var cannon_ref = null
 var t = null
 
+var gear_ratio = 0.0
+var gear_controllable: Gear
+var gear_cannon: Gear
+
 func _ready() -> void:
 	ManagerGame.main_ref = self
 	
@@ -41,6 +45,21 @@ func _ready() -> void:
 			#target.global_position.y = orig_data['target']['y']
 			#
 			#add_child(target)
+	
+	
+	# ###########################
+	for gear: Gear in get_tree().get_nodes_in_group("Gear"):
+		if gear.data.has('is_clickable'):
+			gear_controllable = gear
+		
+		if gear.data.has('is_cannon'):
+			gear_cannon = gear
+			
+			$RotationTest.global_position = gear.global_position
+	
+	gear_ratio = gear_controllable.data['n_teeth'] / gear_cannon.data['n_teeth']
+	
+	
 	
 	on_timer_timeout()
 
@@ -101,17 +120,26 @@ func get_enemies_amount():
 	return targets.size()
 
 
+func generate_target_spawn_position():
+	var steps = 360 / gear_cannon.data['n_teeth']
+	var rand_angle = snapped(randf_range(0, 360), steps)
+	
+	$RotationTest.rotation_degrees = rand_angle
+	
+	return Vector2($RotationTest/Node2D.global_position.x, $RotationTest/Node2D.global_position.y)
+
+
+# spawning enemies here ---- !!
 func on_timer_timeout():
 	# we limit max amount of enemies to display to 5
 	if get_enemies_amount() > 5:
 		return
 	
-	var s = $SpawnPoints.get_children()
-	s.shuffle()
+	#var s = $SpawnPoints.get_children()
+	#s.shuffle()
 	
 	#var rand_pos = Vector2(0, 0)
 	var target = load("res://actors/Target.tscn").instantiate()
-	
-	target.global_position = s[0].global_position
+	target.global_position = generate_target_spawn_position()
 	
 	add_child(target)

@@ -1,0 +1,13 @@
+Hey, I thought more about how to solve this. If Gear 1 (control gear) has T1 teeth and Gear 2 (cannon gear) has T2 teeth, the gear 
+ratio is R = T1 / T2. When Gear 1 rotates by theta_1, Gear 2 rotates by theta_1 * R.
+
+In the game, clicking a tooth on Gear 1 rotates it by 360 / T1 degrees, which causes Gear 2 to rotate by 360 / T2 degrees. 
+The possible angles Gear 2 can reach are n * (360 / T2), where n is the index of the tooth clicked on Gear 1.
+
+Example: Gear 1 has 12 teeth, and Gear 2 has 24 teeth. Each tooth on Gear 1 rotates it by 30 degrees, causing Gear 2 to rotate by 15 
+degrees. Clicking each tooth on Gear 1 rotates Gear 2 to multiples of 15 degrees: 0, 15, 30, ..., 345.
+
+When R is not a rational number (for example, when T1 = 35 and T2 = 37), Gear 2 can theoretically reach any angle with enough clicks 
+because the rotations won't repeat in a predictable cycle. However, we only need to consider 2-3 clicks when spawning an enemy. 
+This means the player has 2-3 chances to hit each enemy, and we can calculate the possible angles Gear 2 might reach after 2-3 clicks. 
+Even when R is irrational, this approach results in a finite set of possible angles for the cannon.
