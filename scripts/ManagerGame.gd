@@ -16,6 +16,7 @@ var gears_data = []
 var angles_dict = {}
 
 var final_json = {}
+var config_data = {}
 
 var json_path_current = ''
 var current_game_mode
@@ -44,6 +45,10 @@ var offsets = {
 	19: -14.0,
 	20: -14.0
 }
+
+
+func _ready() -> void:
+	config_data = get_data("res://reso/config.json")
 
 
 func import_gears_from_file(file_path):
@@ -420,3 +425,11 @@ func clear_datas():
 	gears.clear()
 	angles_dict.clear()
 	final_json.clear()
+
+
+func get_data(path):
+	var f = FileAccess.open(path, FileAccess.READ)
+	var j = JSON.new()
+	j.parse(f.get_as_text())
+	
+	return j.data

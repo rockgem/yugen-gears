@@ -32,7 +32,7 @@ func _ready() -> void:
 		var orig_data = j.data
 		
 		t = Timer.new()
-		t.wait_time = 10.0
+		t.wait_time = ManagerGame.config_data['enemy_spawn_time']
 		t.autostart = true
 		t.timeout.connect(on_timer_timeout)
 		

@@ -1,13 +1,10 @@
 extends Node2D
 
 
-var move_speed = 20.0
-
-
 func _physics_process(delta: float) -> void:
 	var dif = global_position.direction_to(ManagerGame.main_ref.cannon_ref.global_position)
 	
-	global_position += dif * move_speed * delta
+	global_position += dif * ManagerGame.config_data['target_speed'] * delta
 	
 	if global_position.distance_to(ManagerGame.main_ref.cannon_ref.global_position) < 5.0:
 		queue_free()
